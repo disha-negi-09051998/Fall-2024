@@ -1,16 +1,7 @@
 import streamlit as st
-import LAB_01
-import LAB_02
 
-# Setup the navigation sidebar
-st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Lab 1", "Lab 2"])
-
-# Configure global page settings
-st.set_page_config(page_title="Multi-Page Labs App", page_icon=":atom:")
-
-# Render the selected page
-if page == "Lab 1":
-    LAB_01.app()  # Call the app function from LAB_01.py
-elif page == "Lab 2":
-    LAB_02.app()  # Call the app function from LAB_02.py
+lab1 = st.Page("LAB-01.py",title="Lab 1")
+lab2 = st.Page("Lab-02.py",title="Lab 2", default=True)
+pg = st.navigation([lab1, lab2])
+st.set_page_config(page_title="LAB Main Page")
+pg.run()
